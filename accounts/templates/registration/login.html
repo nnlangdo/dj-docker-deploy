@@ -1,0 +1,19 @@
+{% extends 'donation/base.html' %}
+
+{% block title %}Login Page{% endblock %}
+
+{% block content %}
+
+<div style="margin:30px auto;max-width:500px;">
+    <h1>Login Page</h1>
+
+    <div class="form-group">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+    </div>    
+</div>
+
+{% endblock %}

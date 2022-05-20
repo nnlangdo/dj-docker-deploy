@@ -1,0 +1,15 @@
+{% extends 'donation/base.html' %}
+
+{% block title %}Register Page{% endblock %}
+
+{% block content %}
+<h1>Register Page</h1>
+
+<div class="form-group">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-secondary">Register</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,293 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <title>Receipt Main</title>
+    <style>
+        #receipt-main{
+            width: 730px;
+            height: 500px;
+            border: 10px solid red;
+
+            display: grid;
+            grid-template-areas:
+            'Item1 Item2 Item3'
+            'Item4 Item5 Item5'
+            'Item4 Item6 Item6'
+            'Item4 Item7 Item7'
+            'Item4 Item8 Item8'
+            'Item4 Item9 Item9'
+            'Item10 Item11 Item11'
+            'Item12 Item12 Item12'
+            'Item13 Item13 Item13'
+            'Item14 Item14 Item15'
+            'Item16 Item16 Item16'
+            'Item17 Item18 Item19'
+            'Item17 Item20 Item21'
+            'Item22 Item23 Item24'
+            'Item25 Item25 Item25'
+            ;
+            gap: 10px;
+            padding: 10px;
+        }
+        .item1 { 
+            grid-area: Item1; 
+            font-size: 12px;
+            text-align: center;
+            font-weight: bold;
+            color:orange;
+        }
+        .item2 { 
+            grid-area: Item2; 
+            font-size: 12px;
+            text-align: center;
+            font-weight: bold;
+            color:orange;
+
+        }
+        .item3 { 
+            grid-area: Item3;
+            font-size: 12px;
+            text-align: center;
+            font-weight: bold;
+            color:orange;
+
+        }
+        .item4 { 
+            grid-area: Item4; 
+        
+        }
+        .item5 { 
+            grid-area: Item5; 
+            font-size: 25px;
+            font-weight: bold;
+            color: rgb(184, 22, 201);
+            /* text-align: center; */
+        }
+        .item6 {
+             grid-area: Item6;
+             font-weight: bold;
+             color: navy;
+        }
+        .item7 { 
+            grid-area: Item7; 
+            color: navy;
+        }
+        .item8 { grid-area: Item8; 
+                font-size: 35px;
+                font-weight: bold;
+                color: rgb(201, 114, 22);
+                /* text-align: center; */
+        }
+        .item9 { 
+            grid-area: Item9;
+            /* text-align: center;          */
+        }
+        .item10 { 
+            grid-area: Item10;
+            text-align: center; 
+            color:blue          
+        }
+
+        .item11 { 
+            grid-area: Item11; 
+            color:blue        
+        }
+        .item12 { 
+            grid-area: Item12;            
+            color: rgb(184, 22, 201);
+        }
+        .item13 { 
+            grid-area: Item13; 
+            color: rgb(184, 22, 201);
+        }
+        .item14 { 
+            grid-area: Item14; 
+            color: rgb(184, 22, 201);
+        }
+        .item15 { 
+            grid-area: Item15; 
+            color: rgb(184, 22, 201);
+        }
+        .item16 { 
+            grid-area: Item16;
+            color: rgb(184, 22, 201);         
+        }
+        .item17 { 
+            grid-area: Item17; 
+        }
+        .item18 { 
+            grid-area: Item18; 
+            text-align: center;
+            font-weight: bold;
+            color: rgb(184, 22, 201);  
+        }
+        .item19 { 
+            grid-area: Item19; 
+            font-size: 10px;
+            color: rgb(184, 22, 201);
+        }
+        .item20 { 
+            grid-area: Item20; 
+            text-align: center; 
+            font-weight: bold; 
+        }
+        .item21 { 
+            grid-area: Item21; 
+            text-align: center; 
+            color:rgb(255, 51, 0);
+        }
+        .item22 { 
+            grid-area: Item22; 
+            color: rgb(184, 22, 201);
+        }
+        .item23 { 
+            grid-area: Item23; 
+            text-align: center; 
+            font-weight: bold;
+            color:rgb(255, 51, 0);       
+        }
+        .item24 { 
+            grid-area: Item24; 
+            text-align: center;  
+            font-weight: bold;       
+        }
+        .item25 { 
+            grid-area: Item25;  
+            text-align: center; 
+            background-color: navy;  
+            color: white;     
+        }
+
+
+
+
+
+        .receipt-main > div {
+        background-color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        padding: 20px 0;
+        font-size: 30px;
+        }
+
+        #subcell {
+            border-radius: 30%;
+            border: 5px solid red;
+            font-size: 30px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .button-download {
+            font-size: 20px;
+            margin-top: 5px;
+            color: white;
+            background-color: rgb(184, 22, 201);
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="receipt-main">
+        <div class="item1">।।श्री सरयू देव्यै नमः।।</div>
+        <div class="item2">।। श्री सीता रामाभ्या नमः।।</div>
+        <div class="item3">।।श्री हनुमते नमः।।</div>  
+        <div class="item4"><img src="{% static 'donation/images/hanuman1.jpeg' %}" width="200px"></div>
+        <div class="item5">आञ्जनेय सेवा संस्थान एवं विकास समिति </div>
+        <div class="item6">आञ्जनेय भवन, पत्थर मंदिर, वासुदेवघाट, श्री अयोध्या जी के तत्वाधान में</div>
+        <div class="item7">Regd.No.:F-37670</div>
+        <div class="item8">माँ सरयू जी की नित्य महाआरती </div>
+        <div class="item9">(स्थान- सहस्रधारा लक्ष्मणघाट, रामकी पौड़ी अयोध्या जी)</div>
+        <div class="item10">क्रमांक - <span style="color:black;">{{ donor.id }}</span></div>
+        <div class="item11">दिनांक - <span style="color:black;">{{ donor.date_donation | date:"d-m-Y" }}</span></div>
+        <div class="item12">दानदाता का नाम - <span style="color:black;font-size:20px;">{{ donor.name }}</span></div>
+        <div class="item13">पूरा पता - <span style="color:black;">{{ donor.address }}</span></div>
+        <div class="item14">मोबाईल नंबर - <span style="color:black;font-size:20px;">{{ donor.phone }}</span></div>
+        <div class="item15">माँ सरयू जी की नित्य महाआरती निमित्त</div>
+        <div class="item16">न्योछावर (शब्दों में) - <span style="color:black;">{{ donor_amount_words }}</span> </div>
+
+        <div class="item17">
+            <div id="subcell"><small style="padding-right:5px;">रु</small>
+                <span id="number" style="color:black;font-size:20px;">
+                    {% if donor.mode_donation == 'Cash' %}
+                    {{ donor.amount }}
+                    {% elif donor.mode_donation == 'Cheque' %}
+                    {{ donor.cheque_amount }}
+                    {% else %}
+                    {{ donor.draft_amount }}
+                    {% endif %}
+                </span>
+            </div>
+        </div>
+
+        <div class="item18">सधन्यबाद प्राप्त किया</div>
+        <div class="item19">
+            {% if donor.mode_donation == "Cheque" %}
+                chque-no <span style="color:black;">{{ donor.cheque_no }}</span> micr <span style="color:black;">{{ donor.cheque_micr }}</span> date - <span style="color:black;">{{ donor.cheque_date | date:"d/m/Y" }}</span> 
+            {% elif donor.mode_donation == "Draft" %}
+        draft-no <span style="color:black;">{{ donor.draft_no }}</span> micr <span style="color:black;">{{ donor.draft_micr }}</span> date - <span style="color:black;">{{ donor.draft_date | date:"d/m/Y" }}</span> 
+            {% endif %}
+        </div>
+        <div class="item20">अध्यक्ष</div>
+        <div class="item21">{{ donor.created_by.first_name }} {{ donor.created_by.last_name }}</div>
+        <div class="item22">Mode of Donation - <span style="color:black;"><b>{{ donor.mode_donation }}</b></span></div>
+        <div class="item23">मा श्री शशिकांत जी महाराज</div>
+        <div class="item24">ह. प्राप्तकर्ता</div>
+        <div class="item25">प्रधान कार्यालय - आञ्जनेय भवन, पत्थर मंदिर, वासुदेवघाट, अयोध्या, फैज़ाबाद उ.प्र.मो :9451204318</div>
+    </div> <!--/receipt-main-->
+
+    <button onclick="generatePDF()" class="button-download">Download</button>
+</body>
+
+<!-- <script>
+    var a = ['','one ','two ','three ','four ', 'five ','six ','seven ','eight ','nine ','ten ','eleven ','twelve ','thirteen ','fourteen ','fifteen ','sixteen ','seventeen ','eighteen ','nineteen '];
+var b = ['', '', 'twenty','thirty','forty','fifty', 'sixty','seventy','eighty','ninety'];
+
+function inWords (num) {
+if ((num = num.toString()).length > 9) return 'overflow';
+n = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
+if (!n) return; var str = '';
+str += (n[1] != 0) ? (a[Number(n[1])] || b[n[1][0]] + ' ' + a[n[1][1]]) + 'crore ' : '';
+str += (n[2] != 0) ? (a[Number(n[2])] || b[n[2][0]] + ' ' + a[n[2][1]]) + 'lakh ' : '';
+str += (n[3] != 0) ? (a[Number(n[3])] || b[n[3][0]] + ' ' + a[n[3][1]]) + 'thousand ' : '';
+str += (n[4] != 0) ? (a[Number(n[4])] || b[n[4][0]] + ' ' + a[n[4][1]]) + 'hundred ' : '';
+str += (n[5] != 0) ? ((str != '') ? 'and ' : '') + (a[Number(n[5])] || b[n[5][0]] + ' ' + a[n[5][1]]) + 'only ' : '';
+return str;
+} -->
+
+<!-- // document.getElementById('number').onkeyup = function () {
+//     document.getElementById('words').innerHTML = inWords(document.getElementById('number').value);
+// }; -->
+
+<!-- const element = document.getElementById("number");
+
+document.getElementById("word").innerHTML = inWords(document.getElementById("number").innerHTML);
+</script> -->
+
+
+<script>
+
+    function generatePDF(){
+      var element = document.getElementById('receipt-main');
+  var opt = {
+    margin:       0,
+    filename:     'receipt-main.pdf',
+    image:        { type: 'jpeg', quality: 0.98 },
+    html2canvas:  { scale: 2 },
+    jsPDF:        { unit: 'in', format: 'A5', orientation: 'landscape' }
+  };
+  
+  // New Promise-based usage:
+  html2pdf().set(opt).from(element).save();
+  
+  // For Old monolithic-style usage:
+  // html2pdf(element, opt);
+    }
+  </script>
+</html>

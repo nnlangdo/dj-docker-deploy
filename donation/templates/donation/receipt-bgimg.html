@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" type="text/css" href="{% static 'donation/style.css' %}">
+  <title>html to pdf</title>
+  <style>
+
+  </style>
+</head>
+<body>
+  <div id="invoice">
+    <div id="detail1">
+      {{ donor.name }}
+    </div>
+
+    <div id="detail2">
+      {{ donor.address }}
+    </div>
+
+    <div id="detail3">
+      {{ donor.phone }}
+    </div>
+
+    <div id="detail4">
+      {{ donor.date_donation }}
+    </div>
+
+    <div id="detail5">
+      {{ donor.amount }}
+    </div>
+
+
+  </div>
+  <button onclick="generatePDF()">Download</button>
+</body>
+
+<script>
+
+  function generatePDF(){
+    var element = document.getElementById('invoice');
+var opt = {
+  margin:       0,
+  filename:     'receiptbg.pdf',
+  image:        { type: 'jpeg', quality: 0.98 },
+  html2canvas:  { scale: 2 },
+  jsPDF:        { unit: 'in', format: 'A4', orientation: 'portrait' }
+};
+
+// New Promise-based usage:
+html2pdf().set(opt).from(element).save();
+
+// For Old monolithic-style usage:
+// html2pdf(element, opt);
+  }
+</script>
+</html>

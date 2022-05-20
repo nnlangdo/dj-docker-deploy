@@ -1,0 +1,174 @@
+{% extends 'donation/base.html' %}
+
+{% block title %}
+save data
+{% endblock %}
+
+
+{% block content %}
+{% if user.is_authenticated %}
+
+<div style="margin:30px auto;max-width:500px;">
+    <h1>Donation Detail</h1>
+<form method="post">
+    {% csrf_token %}
+
+    {{ form.non_field_errors }}
+
+    <div class="fieldWrapper" hidden>
+        {{ form.created_by.errors }}
+        <div>
+            <label for="{{ form.created_by.id_for_label }}">Created_by:</label>
+        </div>    
+        {{ form.created_by }}
+    </div>
+    
+
+<div class="fieldWrapper">
+    {{ form.name.errors }}
+    <div>
+        <label for="{{ form.name.id_for_label }}">Name of Donor:</label>
+    </div>    
+    {{ form.name }}
+</div>
+
+<div class="fieldWrapper">
+    {{ form.address.errors }}
+    <div>
+        <label for="{{ form.address.id_for_label }}">Address:</label>
+    </div>    
+    {{ form.address }}
+</div>
+
+<div class="fieldWrapper">
+    {{ form.phone.errors }}
+    <div>
+        <label for="{{ form.phone.id_for_label }}">Phone:</label>
+    </div>    
+    {{ form.phone }}
+</div>
+
+<!-- <div class="fieldWrapper">
+    {{ form.date_donation.errors }}
+    <div>
+        <label for="{{ form.date_donation.id_for_label }}">Date of Donation:</label>
+    </div>    
+    {{ form.date_donation }}
+</div> -->
+
+<div class="fieldWrapper">
+    {{ form.mode_donation.errors }}
+    <div>
+        <label for="{{ form.mode_donation.id_for_label }}">Mode of Donation:</label>
+    </div>    
+    {{ form.mode_donation }}
+</div>
+
+
+<div id="Cash" class="data">
+<div class="fieldWrapper">
+    {{ form.amount.errors }}
+    <div>
+        <label for="{{ form.amount.id_for_label }}">Amount:</label>
+    </div>    
+    {{ form.amount }}
+</div>
+</div>
+
+
+<div id="Cheque" class="data">
+<div class="fieldWrapper">
+    {{ form.cheque_no.errors }}
+    <div>
+        <label for="{{ form.cheque_no.id_for_label }}">Cheque Number:</label>
+    </div>    
+    {{ form.cheque_no }}
+</div>
+
+<div class="fieldWrapper">
+    {{ form.cheque_micr.errors }}
+    <div>
+        <label for="{{ form.cheque_micr.id_for_label }}">Micr of Cheque:</label>
+    </div>    
+    {{ form.cheque_micr }}
+</div>
+
+<div class="fieldWrapper">
+    {{ form.cheque_date.errors }}
+    <div>
+        <label for="{{ form.cheque_date.id_for_label }}">Cheque Date:</label>
+    </div>    
+    {{ form.cheque_date }}
+</div>
+
+<div class="fieldWrapper">
+    {{ form.cheque_amount.errors }}
+    <div>
+        <label for="{{ form.cheque_amount.id_for_label }}">Cheque Amount:</label>
+    </div>    
+    {{ form.cheque_amount }}
+</div>
+</div>
+
+
+<div id="Draft" class="data">
+<div class="fieldWrapper">
+    {{ form.draft_no.errors }}
+    <div>
+        <label for="{{ form.draft_no.id_for_label }}">Draft Number:</label>
+    </div>    
+    {{ form.draft_no }}
+</div>
+
+<div class="fieldWrapper">
+    {{ form.draft_micr.errors }}
+    <div>
+        <label for="{{ form.draft_micr.id_for_label }}">Micr of Draft:</label>
+    </div>    
+    {{ form.draft_micr }}
+</div>
+
+<div class="fieldWrapper">
+    {{ form.draft_date.errors }}
+    <div>
+        <label for="{{ form.draft_date.id_for_label }}">Draft Date:</label>
+    </div>    
+    {{ form.draft_date }}
+</div>
+
+<div class="fieldWrapper">
+    {{ form.draft_amount.errors }}
+    <div>
+        <label for="{{ form.draft_amount.id_for_label }}">Draft Amount:</label>
+    </div>    
+    {{ form.draft_amount }}
+</div>
+</div>
+
+
+    <button type="submit" class="btn btn-primary mt-2">Submit</button>
+  </form>
+
+  <script>
+    var name = "{{ user.id }}";
+    document.getElementById("elder").value = name;
+</script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+
+    <script>
+        jQuery('select[name=mode_donation]').change(function(){
+        var fieldsetName = $(this).val();
+        $('.data').hide().filter('#' + fieldsetName).show();
+         });
+
+            // We need to hide all fieldsets except the first:
+        $('.data').hide().filter('#Cash').show();    
+    </script>
+</div>
+{% else %}
+<h1 class="text-center">Go to login Page! </h1>
+{% endif %}
+{% endblock %}
+
+

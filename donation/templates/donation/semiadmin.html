@@ -1,0 +1,123 @@
+{% extends 'donation/base.html' %}
+
+{% block title %}Semi Admin Page{% endblock %}
+
+
+
+{% block content_cash %}
+
+
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Address</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Mode of Donation</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Date</th>
+        <th scope="col">Created_by</th>
+        <th scope="col">Edit</th>
+
+        
+      </tr>
+    </thead>
+    <tbody>
+        
+        {% for donation in donations_cash %}
+      <tr>
+        <th scope="row">{{ donation.id }}</th>
+        <td>{{ donation.name }}</td>
+        <td>{{ donation.address }}</td>
+        <td>{{ donation.phone }}</td>
+        <td>{{ donation.mode_donation }}</td> 
+        <td>{{ donation.amount }}</td>
+        <td>{{ donation.date_donation }}</td> 
+        <td>{{ donation.created_by }}</td> 
+        <td><a href="{% url 'editreceipt' donation.id %}">Edit</a></td>
+        <td><a href="{% url 'receipt-download' donation.id %}">download</a></td>             
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table>
+  {% endblock %}
+
+  {% block content_cheque %}
+<h5>Cheque Donation</h5>
+<table class="table">
+    <thead>
+      <tr>
+        <!-- <th scope="col"></th> -->
+        <!-- <th scope="col">Name</th>
+        <th scope="col">Address</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Mode of Donation</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Date</th> -->
+      </tr>
+    </thead>
+    <tbody>
+       
+        {% for donation in donations_cheque %}
+      <tr>
+        <th scope="row">{{ donation.id }}</th>
+        <td>{{ donation.name }}</td>
+        <td>{{ donation.address }}</td>
+        <td>{{ donation.phone }}</td>
+        <td>{{ donation.mode_donation }}</td> 
+        <td>{{ donation.cheque_amount }}</td>
+        <td>{{ donation.date_donation }}</td>  
+        <td>{{ donation.created_by }}</td> 
+        <td><a href="{% url 'editreceipt' donation.id %}">Edit</a></td> 
+        <td><a href="{% url 'receipt-download' donation.id %}">download</a></td>            
+     
+      </tr>
+      {% endfor %}
+     
+    </tbody>
+  </table>
+  {% endblock %}
+
+
+  {% block content_draft %}
+  <h5>Draft Donation</h5>
+
+  <table class="table">
+      <thead>
+        <tr>
+          <!-- <th scope="col"></th> -->
+          <!-- <th scope="col">Name</th>
+          <th scope="col">Address</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Mode of Donation</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Date</th> -->
+        </tr>
+      </thead>
+      <tbody>
+         
+          {% for donation in donations_draft %}
+        <tr>
+          <th scope="row">{{ donation.id }}</th>
+          <td>{{ donation.name }}</td>
+          <td>{{ donation.address }}</td>
+          <td>{{ donation.phone }}</td>
+          <td>{{ donation.mode_donation }}</td> 
+          <td>{{ donation.draft_amount }}</td>
+          <td>{{ donation.date_donation }}</td>  
+          <td>{{ donation.created_by }}</td>
+          <td><a href="{% url 'editreceipt' donation.id %}">Edit</a></td> 
+          <td><a href="{% url 'receipt-download' donation.id %}">download</a></td>            
+      
+        </tr>
+        {% endfor %}
+       
+      </tbody>
+    </table>
+
+
+    {% endblock %}
+
