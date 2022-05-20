@@ -1,0 +1,51 @@
+#invoice {
+    position: relative;
+    background-image: url("images/ramkachehri.jpg");
+    background-repeat: no-repeat;
+    height: 500px;
+}
+#detail1 {
+    font-size: 23px;
+    color: navy;
+    position: absolute;
+    top: 208px;
+    left: 220px;
+}
+
+#detail2 {
+    color: navy;
+    position: absolute;
+    top: 250px;
+    left: 220px;
+}
+
+#detail3 {
+    color: navy;
+    position: absolute;
+    top: 290px;
+    left: 220px;
+}
+
+#detail4 {
+    color: navy;
+    position: absolute;
+    top: 190px;
+    left: 750px;
+}
+
+#detail5 {
+    font-size: 35px;
+    color: navy;
+    position: absolute;
+    top: 400px;
+    left: 150px;
+}
+
+#detail6 {
+    font-size: 35px;
+    color: navy;
+    position: absolute;
+    top: 400px;
+    left: 450px;
+}
+
